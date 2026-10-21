@@ -69,6 +69,18 @@
   </style>
 </head>
 <body>
+  <div id="gate" style="position:fixed;inset:0;background:#f5f7fb;display:flex;align-items:center;justify-content:center;padding:20px;z-index:9999;">
+    <div style="max-width:420px;width:100%;background:#ffffff;border:1px solid #dbe4f0;border-radius:24px;box-shadow:0 12px 40px rgba(17,24,39,.08);padding:24px;">
+      <div style="font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:#667085;font-weight:700;margin-bottom:10px;">Protected demo</div>
+      <h1 style="margin:0 0 10px;font-size:28px;line-height:1.08;letter-spacing:-.03em;">Mercury Verified</h1>
+      <p style="color:#667085;line-height:1.55;font-size:14px;margin:0 0 16px;">Enter password to view the sanitized demo.</p>
+      <input id="pw" type="password" placeholder="Password" style="width:100%;padding:12px 14px;border:1px solid #dbe4f0;border-radius:14px;font-size:14px;" />
+      <button id="unlockBtn" style="margin-top:12px;width:100%;padding:12px 14px;border:0;border-radius:14px;background:#356dff;color:#fff;font-size:14px;font-weight:600;cursor:pointer;">Unlock</button>
+      <div id="pwErr" style="display:none;margin-top:10px;color:#b42318;font-size:13px;">Incorrect password.</div>
+      <div style="margin-top:12px;color:#98a2b3;font-size:12px;">Client-side only — not real security.</div>
+    </div>
+  </div>
+  <div id="content" style="display:none;">
   <div class="wrap">
     <div class="hero">
       <section class="card">
@@ -88,7 +100,7 @@
         <h2 style="font-size:18px">Public-safe framing</h2>
         <div class="box">
           <strong>Indexed mode only</strong>
-          <div class="small">This version intentionally omits raw company financial values. It is suitable for follow-up sharing because it demonstrates the product shape and trust model without exposing private balances.</div>
+          <div class="small">This version intentionally omits raw company financial values. It is suitable for sharing because it demonstrates the product shape and trust model without exposing private balances.</div>
         </div>
         <div class="box" style="margin-top:12px;">
           <strong>Core insight</strong>
@@ -171,5 +183,32 @@
 
     <div class="footer">Sanitized public version — no raw company balances, no private account numbers, no live secrets.</div>
   </div>
+  </div>
+  <script>
+    (function () {
+      const PASSWORD = 'Ryan1234';
+      const gate = document.getElementById('gate');
+      const content = document.getElementById('content');
+      const input = document.getElementById('pw');
+      const btn = document.getElementById('unlockBtn');
+      const err = document.getElementById('pwErr');
+      function unlock() {
+        if (input.value === PASSWORD) {
+          sessionStorage.setItem('mercury_verified_unlocked', '1');
+          gate.style.display = 'none';
+          content.style.display = 'block';
+          err.style.display = 'none';
+        } else {
+          err.style.display = 'block';
+        }
+      }
+      if (sessionStorage.getItem('mercury_verified_unlocked') === '1') {
+        gate.style.display = 'none';
+        content.style.display = 'block';
+      }
+      btn.addEventListener('click', unlock);
+      input.addEventListener('keydown', function (e) { if (e.key === 'Enter') unlock(); });
+    })();
+  </script>
 </body>
 </html>

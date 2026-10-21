@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mercury Verified — Sanitized Demo</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --panel-soft: #fbfcff;
+      --text: #172033;
+      --muted: #667085;
+      --line: #dbe4f0;
+      --accent: #356dff;
+      --accent-soft: #e9f0ff;
+      --good: #127a4a;
+      --good-soft: #e8f7ef;
+      --warn: #8a6d1f;
+      --warn-soft: #fdf6df;
+      --shadow: 0 12px 40px rgba(17,24,39,.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 30px 20px 60px; }
+    .hero { display: grid; grid-template-columns: 1.25fr .95fr; gap: 18px; margin-bottom: 18px; }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+      grid-column: span 12;
+    }
+    .metric { grid-column: span 4; }
+    .span-7 { grid-column: span 7; }
+    .span-5 { grid-column: span 5; }
+    .span-6 { grid-column: span 6; }
+    .eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); font-weight: 700; margin-bottom: 10px; }
+    h1 { margin: 0 0 10px; font-size: 36px; line-height: 1.04; letter-spacing: -.035em; }
+    h2 { margin: 0 0 8px; font-size: 22px; letter-spacing: -.02em; }
+    h3 { margin: 0 0 8px; font-size: 16px; }
+    .sub, .caption, .note, .small { color: var(--muted); line-height: 1.55; }
+    .sub { font-size: 15px; }
+    .caption, .note, .small { font-size: 13px; }
+    .value { font-size: 40px; font-weight: 760; letter-spacing: -.045em; margin: 8px 0; }
+    .tagrow { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    .tag { font-size: 12px; border-radius: 999px; padding: 6px 10px; font-weight: 650; display: inline-flex; align-items: center; gap: 6px; line-height: 1; }
+    .verified { background: var(--good-soft); color: var(--good); }
+    .derived { background: var(--accent-soft); color: var(--accent); }
+    .founder { background: #f3f4f6; color: #4b5563; }
+    .future { background: var(--warn-soft); color: var(--warn); }
+    .box { padding: 16px; border: 1px solid var(--line); border-radius: 18px; background: var(--panel-soft); }
+    .list { display: grid; gap: 12px; }
+    .item { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-top: 1px solid var(--line); }
+    .item:first-child { border-top: 0; padding-top: 0; }
+    ul { margin: 10px 0 0; padding-left: 18px; }
+    .footer { margin-top: 18px; color: var(--muted); font-size: 13px; }
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; }
+      .metric, .span-7, .span-5, .span-6 { grid-column: span 12; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hero">
+      <section class="card">
+        <div class="eyebrow">Mercury follow-up demo · sanitized public version</div>
+        <h1>Mercury Verified <span style="font-weight:500;color:#667085">for Hatch Labs (demo)</span></h1>
+        <div class="sub">
+          A founder-shareable company snapshot framed as a product Mercury could ship: a verified layer grounded in bank-readable facts, a derived analytics layer computed from frozen snapshots, and a clearly separated founder narrative layer.
+        </div>
+        <div class="tagrow">
+          <div class="tag verified">Verified</div>
+          <div class="tag derived">Derived</div>
+          <div class="tag founder">Founder-provided</div>
+          <div class="tag future">Future source</div>
+        </div>
+      </section>
+      <section class="card">
+        <h2 style="font-size:18px">Public-safe framing</h2>
+        <div class="box">
+          <strong>Indexed mode only</strong>
+          <div class="small">This version intentionally omits raw company financial values. It is suitable for follow-up sharing because it demonstrates the product shape and trust model without exposing private balances.</div>
+        </div>
+        <div class="box" style="margin-top:12px;">
+          <strong>Core insight</strong>
+          <div class="small">The founder can narrate, but not edit the facts. A founder-hosted page is only trustworthy if the bank signs the snapshot.</div>
+        </div>
+      </section>
+    </div>
+
+    <div class="grid">
+      <section class="card metric">
+        <div class="eyebrow">Total cash</div>
+        <div class="value">Index 100</div>
+        <div class="caption">Operating plus treasury cash across Mercury-readable accounts.</div>
+        <div class="tagrow"><div class="tag verified">Verified</div><div class="tag founder">Indexed</div></div>
+      </section>
+      <section class="card metric">
+        <div class="eyebrow">Treasury share</div>
+        <div class="value">60%</div>
+        <div class="caption">Illustrative indexed share of total cash held in treasury products.</div>
+        <div class="tagrow"><div class="tag verified">Verified</div><div class="tag founder">Indexed</div></div>
+      </section>
+      <section class="card metric">
+        <div class="eyebrow">Runway</div>
+        <div class="value">19.3 mo</div>
+        <div class="caption">Derived from frozen cash and burn snapshots, assuming no new owner contributions.</div>
+        <div class="tagrow"><div class="tag derived">Derived</div><div class="tag founder">Illustrative</div></div>
+      </section>
+    </div>
+
+    <div class="grid" style="margin-top:18px;">
+      <section class="card span-7">
+        <h2>What Mercury verifies</h2>
+        <div class="list">
+          <div class="item"><div><strong>Organization identity</strong><div class="small">Legal business entity and account ownership context</div></div><div class="tag verified">Verified</div></div>
+          <div class="item"><div><strong>Accounts and balances</strong><div class="small">Checking, savings, treasury, and current liquidity</div></div><div class="tag verified">Verified</div></div>
+          <div class="item"><div><strong>Transactions and counterparties</strong><div class="small">Merchants, transfers, categories, and payment history</div></div><div class="tag verified">Verified</div></div>
+          <div class="item"><div><strong>Statements and reconciliation anchors</strong><div class="small">The substrate for tying out derived metrics</div></div><div class="tag verified">Verified</div></div>
+        </div>
+      </section>
+      <section class="card span-5">
+        <h2>What gets derived</h2>
+        <div class="list">
+          <div class="item"><div><strong>Burn and runway</strong><div class="small">Computed from frozen snapshots</div></div><div class="tag derived">Derived</div></div>
+          <div class="item"><div><strong>Recurring software costs</strong><div class="small">Merchant and category analysis across periods</div></div><div class="tag derived">Derived</div></div>
+          <div class="item"><div><strong>Owner vs customer money</strong><div class="small">Classification layer with confidence and review</div></div><div class="tag derived">Derived</div></div>
+        </div>
+      </section>
+    </div>
+
+    <div class="grid" style="margin-top:18px;">
+      <section class="card span-6">
+        <h2>How this fits Mercury’s product surface</h2>
+        <ul>
+          <li><strong>Insights:</strong> native financial dashboard for burn, runway, spend, inflows/outflows, and AI questions.</li>
+          <li><strong>Command:</strong> natural-language interface for asking questions and preparing work for review.</li>
+          <li><strong>Books / accounting direction:</strong> deeper categorization, bookkeeping, and reconciliation context.</li>
+          <li><strong>MCP / agent workflows:</strong> read first, then draft, then execute under customer-set limits.</li>
+        </ul>
+      </section>
+      <section class="card span-6">
+        <h2>Founder note</h2>
+        <div class="box">
+          <div class="tag founder" style="margin-bottom:10px;">Founder-provided — not verified</div>
+          <div class="note">This demo is intentionally opinionated about trust: the bank should own the signed factual substrate, while the founder supplies context and narrative separately. That makes the page useful to investors, lenders, acquirers, and partners without pretending the founder-hosted UI is the source of truth.</div>
+        </div>
+      </section>
+    </div>
+
+    <div class="grid" style="margin-top:18px;">
+      <section class="card span-12">
+        <h2>Why this matters</h2>
+        <ul>
+          <li>Read-only UI controls are not enough if the founder controls the server.</li>
+          <li>A bank-signed snapshot is stronger than a founder-managed company profile.</li>
+          <li>Mercury is uniquely positioned to separate verified facts from derived interpretation.</li>
+          <li>The product opportunity is not “more dashboard.” It is trust, provenance, and safe AI-assisted financial workflows.</li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="footer">Sanitized public version — no raw company balances, no private account numbers, no live secrets.</div>
+  </div>
+</body>
+</html>
